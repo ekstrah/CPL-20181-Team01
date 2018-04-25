@@ -1,0 +1,15 @@
+{% extends "dm_system/base.html" %}
+
+{% block content %}
+
+  <p>All rows</p>
+
+  <ul>
+      {% for singlerow in allrows %}
+        <li>{{ singlerow }}</li>
+      {% empty %}
+        <li>No data has been added yet</li>
+      {% endfor %}
+  </ul>
+
+{% endblock content %}
