@@ -57,7 +57,7 @@ ROOT_URLCONF = 'dynamic_multimedia_system.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR + "/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -126,3 +126,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
+STATICFILES_DIRS = [
+    BASE_DIR + "/static/",
+]
