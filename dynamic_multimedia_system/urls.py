@@ -21,12 +21,18 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 
+from dm_system.resources import SingleRowResource
+
+single_row_resource = SingleRowResource()
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'', include(('dm_system.urls', 'dm_system'), namespace='dm_system')),
+    url(r'^addsr/', include(single_row_resource.urls))
 ]
 
 if settings.DEBUG:
     urlpatterns += [
         url(r'^media/(?P<path>.*)$',serve, {'document_root' : settings.MEDIA_ROOT,}),
+
     ]
