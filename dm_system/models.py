@@ -28,7 +28,7 @@ def create_single_id(sender, **kwargs):
                              int(singleRow.temperature) +\
                              int(singleRow.humidity) +\
                              int(singleRow.numberOfPeople)
-    maxIdObject = SingleImageId.objects.all().order_by("-id")[0]
+    maxIdObject = SingleImage.objects.all().order_by("-id")[0]
     maxId = maxIdObject.id
     constructorImageId = (constructorImageId % maxId)+1
     singleId = SingleImageId.objects.create(imageId=constructorImageId)
