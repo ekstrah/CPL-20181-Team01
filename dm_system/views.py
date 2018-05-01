@@ -3,7 +3,7 @@ from .models import SingleRow, SingleImage, SingleImageId
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'dm_system/index2.html')
 
 def allrows(request):
     rows = SingleRow.objects.order_by('id')
