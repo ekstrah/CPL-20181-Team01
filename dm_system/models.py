@@ -19,7 +19,7 @@ class SingleImageId(models.Model):
 def create_single_id(sender, **kwargs):
     singleRows = SingleRow.objects.all()
     #there may be bugs:
-    #-this method is being called before new data is saved via post (probably)
+    #-this method is being called before new data is saved via post (probably) !!!!!
     #-this is doing almost nothing to calculate final value, only adds everything
 
     constructorImageId = 0
