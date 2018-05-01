@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import SingleRow, SingleImage
+from .models import SingleRow, SingleImage, SingleImageId
 
 # Create your views here.
 def index(request):
@@ -11,6 +11,8 @@ def allrows(request):
     return render(request, 'dm_system/allrows.html', context)
 
 def dgm(request):
-    image = SingleImage.objects.order_by('id')[0]
+    imageId = SingleImageId.objects.all().order_by("-id")[0].imageId
+    imageId = imageId - 1
+    image = SingleImage.objects.order_by('id')[imageId]
     args = {'singleimage' : image}
     return render(request, 'dm_system/dgm.html',args)
